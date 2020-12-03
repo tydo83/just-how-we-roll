@@ -30,16 +30,12 @@ const sortByNumber = function(arr) {
 /*******************
  * YOUR CODE BELOW *
  *******************/
+
 const d6Button = document.querySelector("#d6-button")
 const dice6 = document.querySelector("#d6-roll")
 const meanD6 = document.querySelector("#d6-rolls-mean")
 const medianD6 = document.querySelector("#d6-rolls-median")
 const modeD6 = document.querySelector("#d6-rolls-mode")
-dice6.src = "images/start/d6.png"
-meanD6.innerText = 'NA'
-medianD6.innerText = 'NA'
-modeD6.innerText = 'NA'
-
 
 const doubleD6Button = document.querySelector("#double-d6-buttons")
 const doubleDice6_1 = document.querySelector("#double-d6-roll-1")
@@ -47,34 +43,42 @@ const doubleDice6_2 = document.querySelector("#double-d6-roll-2")
 const meanDoubleD6 = document.querySelector("#double-d6-rolls-mean")
 const medianDoubleD6 = document.querySelector("#double-d6-rolls-median")
 const modeDoubleD6 = document.querySelector("#double-d6-rolls-mode")
-doubleDice6_1.src = "images/start/d6.png"
-doubleDice6_2.src = "images/start/d6.png"
-meanDoubleD6.innerText = 'NA'
-medianDoubleD6.innerText = 'NA'
-modeDoubleD6.innerText = 'NA'
-
 
 const d12Button = document.querySelector("#d12-button")
 const dice12 = document.querySelector("#d12-roll") 
 const meanD12 = document.querySelector("#d12-rolls-mean")
 const medianD12 = document.querySelector("#d12-rolls-median")
 const modeD12 = document.querySelector("#d12-rolls-mode")
-dice12.src = "images/start/d12.jpeg"
-meanD12.innerText = 'NA'
-medianD12.innerText = 'NA'
-modeD12.innerText = 'NA'
-
 
 const d20Button = document.querySelector("#d20-button")
 const dice20 = document.querySelector("#d20-roll")
 const meanD20 = document.querySelector("#d20-rolls-mean")
 const medianD20 = document.querySelector("#d20-rolls-median")
 const modeD20 = document.querySelector("#d20-rolls-mode")
-dice20.src = "images/start/d20.jpg"
-meanD20.innerText = 'NA'
-medianD20.innerText = 'NA'
-modeD20.innerText = 'NA'
 
+function start() {
+  dice6.src = "images/start/d6.png"
+  meanD6.innerText = 'NA'
+  medianD6.innerText = 'NA'
+  modeD6.innerText = 'NA'
+  
+  doubleDice6_1.src = "images/start/d6.png"
+  doubleDice6_2.src = "images/start/d6.png"
+  meanDoubleD6.innerText = 'NA'
+  medianDoubleD6.innerText = 'NA'
+  modeDoubleD6.innerText = 'NA'
+
+  dice12.src = "images/start/d12.jpeg"
+  meanD12.innerText = 'NA'
+  medianD12.innerText = 'NA'
+  modeD12.innerText = 'NA'
+  dice20.src = "images/start/d20.jpg"
+  meanD20.innerText = 'NA'
+  medianD20.innerText = 'NA'
+  modeD20.innerText = 'NA'
+};
+
+start();
 
 /*******************
  * EVENT LISTENERS *
@@ -139,7 +143,9 @@ d20Button.addEventListener('click', () => {
  * RESET FUNCTION *
  ******************/
 
-
+const resetButton = document.querySelector("#reset-button");
+resetButton.addEventListener('click', start);
+  
 
 /****************************
  * CLICK HANDLING FUNCTIONS *
@@ -174,13 +180,23 @@ function medianCal(numArray) {
   return median;
 }
 
+// Dummy code for running 
 function modeCal(numArray) {
-  let mode = 0;
-  for(const num of numArray) {
-
-  }
-  
-  
-  
-  return mode;
+  return numArray[0];
 }
+
+// function modeCal(numArray) {
+//   const list = {};
+//   numArray.forEach(number => {
+//     if(list[number] == undefined){
+//       list[number] = 1;
+//     } else {
+//       list[number] += 1 ;
+//     }
+//   });
+//   return list;
+// }
+// a = [2,2,3,3]
+// a = modeCal(a);
+// a;
+
